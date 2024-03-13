@@ -3,11 +3,12 @@ import art as a
 
 def get_user_choice():
     """Get user choice from input."""
-    return int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+    return int(input("What do you choose? Type 0 for Rock, 1 for Paper, or 2 for Scissors.\n"))
 
-def display_choices(choice, choice_name):
+def display_choices(choice_art, choice_name):
     """Display the choice made by the user or the computer."""
-    print(f"\nYou chose {choice_name}!\n{choice}")
+    print(f"\nYou chose {choice_name}!")
+    print(choice_art)
 
 def main():
     """Main function to run the Rock-Paper-Scissors game."""
@@ -19,16 +20,14 @@ def main():
     choices = [a.rock, a.paper, a.scissors]
     choice_names = ["Rock", "Paper", "Scissors"]
 
-    if 0 <= user <= 2:
-        display_choices(choices[user], choice_names[user])
-    else:
-        print("Enter valid input")
+    if user not in [0, 1, 2]:
+        print("You haven't entered a valid input. Thanks for playing!")
+        return
+
+    display_choices(choices[user], choice_names[user])
 
     print("Computer chose:")
-    if 0 <= comp <= 2:
-        display_choices(choices[comp], choice_names[comp])
-    else:
-        print("Enter valid input")
+    display_choices(choices[comp], choice_names[comp])
 
     # rock 0
     # paper 1
